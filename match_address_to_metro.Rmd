@@ -2,18 +2,19 @@
 title: "match_address_to_metro"
 author: "Sifan Liu"
 date: "4/14/2022"
-output: html_document
+output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 ```
 
 ## Introduction
 Regional analysis often require matching addresses to a standard geography. This tutorial shows how to retrieve the geography coordinates (latitude and longtitude) of the addresses, and use spatial joins to find out if the addresses falls inside the target geographies. 
 
 ## Required packages
-```{r library, echo=False, warning=FALSE}
+
+```{r library, echo=FALSE, message=FALSE}
 library(dplyr)
 library(tidygeocoder)
 library(tigris)
