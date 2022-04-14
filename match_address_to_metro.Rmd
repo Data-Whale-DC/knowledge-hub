@@ -14,7 +14,7 @@ Regional analysis often require matching addresses to a standard geography. This
 
 ## Required packages
 
-```{r library, echo=FALSE, message=FALSE}
+```{r library, message=FALSE}
 library(dplyr)
 library(tidygeocoder)
 library(tigris)
@@ -60,7 +60,7 @@ To perfrom spatial joins, we first need to convert the lat long columns from cha
 
 Finally, we use `sf::st_intersection` function to figure out if any address ##points## falls into the metro ##shapes##. The output shows the final matching result.
 
-```{r joins, echo=FALSE}
+```{r joins}
 geocoded %>% 
   select(name, addr, lat, long) %>% 
   st_as_sf(coords = c("long", "lat"), crs = st_crs(cbsa_shapes)) %>% 
