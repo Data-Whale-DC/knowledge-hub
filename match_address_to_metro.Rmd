@@ -6,15 +6,15 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message=FALSE)
 ```
 
 ## Introduction
-Regional analysis often require matching addresses to a standard geography. This tutorial shows how to retrieve the geography coordinates (latitude and longtitude) of the addresses, and use spatial joins to find out if the addresses falls inside the target geographies. 
+Regional analysis often require matching addresses to a standard geography. This tutorial shows how to retrieve the geography coordinates (latitude and longitude) of the addresses, and use spatial joins to find out if the addresses fall inside the target geographies. 
 
 ## Required packages
 
-```{r library, message=FALSE}
+```{r library}
 library(dplyr)
 library(tidygeocoder)
 library(tigris)
@@ -58,7 +58,7 @@ tm_shape(cbsa_shapes)+
 ## Spatial Joins
 To perfrom spatial joins, we first need to convert the lat long columns from character value to a spatial object with `sf::st_as_sf` function. Make sure to use the same Coordinate Reference Systems (CRS) as the shapefiles. 
 
-Finally, we use `sf::st_intersection` function to figure out if any address ##points## falls into the metro ##shapes##. The output shows the final matching result.
+Finally, we use `sf::st_intersection` function to figure out if any address **points** falls into the metro **shapes**. The output shows the final matching result.
 
 ```{r joins}
 geocoded %>% 
